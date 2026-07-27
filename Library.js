@@ -36,6 +36,35 @@ function Book(title, author, read, description) {
 function addBookToLibrary(title, author, read, description) {
     // take params, create a book then store it in the array
     const newBook = new Book(title, author, read, description);
-    myLibrary.push(newBook);
+  myLibrary.push(newBook);
+}
 
+//card takes in the book object from the my Library Array
+function createBookCard(book) {
+  const bookContainer = document.createElement('div');
+  const bookTitle = document.createElement('h2');
+  const bookAuthor = document.createElement('p');
+  /*
+   Need the HTML Structure to look like this:
+
+   <div id="LOTR3" class="book-card">
+       <h2 class="book-title">Lord of the Rings</h2>
+       <p class="book-author">by J.R.R. Tolkien</p>
+
+       <div class="book-read-status">
+           <input type="checkbox" id="LOTR3-read" checked>
+           <label for="LOTR3-read">Read</label>
+       </div>
+
+       <p class="book-description">
+           The Lord of the Rings is an epic fantasy saga...
+       </p>
+   </div>
+  */
+  bookContainer.id = book.id;
+
+}
+
+function displayBooks() {
+  const outputLocation = document.getElementById('output');
 }
