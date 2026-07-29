@@ -41,27 +41,43 @@ function addBookToLibrary(title, author, read, description) {
 
 //card takes in the book object from the my Library Array
 function createBookCard(book) {
-  const bookContainer = document.createElement('div');
-  const bookTitle = document.createElement('h2');
-  const bookAuthor = document.createElement('p');
-  /*
-   Need the HTML Structure to look like this:
+  const bookCard = document.createElement('div');
+   bookCard.id = book.id;
+   bookCard.className = 'book-card';
 
-   <div id="LOTR3" class="book-card">
-       <h2 class="book-title">Lord of the Rings</h2>
-       <p class="book-author">by J.R.R. Tolkien</p>
+   const title = document.createElement('h2');
+   title.className = 'book-title';
+   title.textContent = book.title;
+   bookCard.appendChild(title);
 
-       <div class="book-read-status">
-           <input type="checkbox" id="LOTR3-read" checked>
-           <label for="LOTR3-read">Read</label>
-       </div>
+   const author = document.createElement('p');
+   author.className = 'book-author';
+   author.textContent = `by ${book.author}`;
+   bookCard.appendChild(author);
 
-       <p class="book-description">
-           The Lord of the Rings is an epic fantasy saga...
-       </p>
-   </div>
-  */
-  bookContainer.id = book.id;
+   const bookReadStatus = document.createElement('div');
+   bookReadStatus.className = 'book-read-status';
+
+   const checkbox = document.createElement('input');
+   checkbox.type = 'checkbox';
+   checkbox.id = `${book.id}-read`;
+   checkbox.checked = book.read;
+   checkbox.addEventListener('change', () => book.toggleRead());
+
+   const label = document.createElement('label');
+   label.htmlFor = `${book.id}-read`;
+   label.textContent = 'Read';
+
+   bookReadStatus.appendChild(checkbox);
+   bookReadStatus.appendChild(label);
+   bookCard.appendChild(bookReadStatus);
+
+   const description = document.createElement('p');
+   description.className = 'book-description';
+   description.textContent = book.description;
+   bookCard.appendChild(description);
+
+   return bookCard;
 
 }
 
