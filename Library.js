@@ -4,15 +4,29 @@ const myLibrary = [
         author: "J.R.R. Tolkien",
         id: "LOTR3",
         read: false,
-        description: "The Lord of the Rings is an epic fantasy saga by J.R.R. Tolkien where the fate of Middle-earth hinges on a hobbit named Frodo Baggins, who must destroy the One Ring in the fires of Mount Doom to defeat the dark lord Sauron.  To accomplish this, Frodo is joined by a diverse fellowship of heroes who face corruption, war, and overwhelming odds while the free peoples of the world rally against Sauron’s forces. "
-    },
-    {
-        title:"The Chronicles of Narnia: The Lion the Witch and the Wardrobe",
-        author: "C.S. Lewis",
-        id: "NARNIA2",
-        read: false,
-        description: "The Lion, the Witch and the Wardrobe is a fantasy novel by C.S. Lewis where four siblings escape World War II by entering a magical land called Narnia through a wardrobe.  They ally with the lion Aslan to defeat the tyrannical White Witch and fulfill a prophecy that restores peace to the kingdom.  "
+    description: "The Lord of the Rings is an epic fantasy saga by J.R.R. Tolkien where the fate of Middle-earth hinges on a hobbit named Frodo Baggins, who must destroy the One Ring in the fires of Mount Doom to defeat the dark lord Sauron.  To accomplish this, Frodo is joined by a diverse fellowship of heroes who face corruption, war, and overwhelming odds while the free peoples of the world rally against Sauron’s forces. ",
+    toggleRead: function (read) {
+      if (this.read) {
+        this.read = false
+        return;
+      }
+      this.read = true;
     }
+    },
+  {
+    title: "The Chronicles of Narnia: The Lion the Witch and the Wardrobe",
+    author: "C.S. Lewis",
+    id: "NARNIA2",
+    read: false,
+    description: "The Lion, the Witch and the Wardrobe is a fantasy novel by C.S. Lewis where four siblings escape World War II by entering a magical land called Narnia through a wardrobe.  They ally with the lion Aslan to defeat the tyrannical White Witch and fulfill a prophecy that restores peace to the kingdom.  ",
+    toggleRead: function (read) {
+      if (this.read) {
+        this.read = false
+        return;
+      }
+      this.read = true;
+    }
+  }
 ];
 
 function Book(title, author, read, description) {
@@ -62,7 +76,7 @@ function createBookCard(book) {
    checkbox.type = 'checkbox';
    checkbox.id = `${book.id}-read`;
    checkbox.checked = book.read;
-   checkbox.addEventListener('change', () => book.toggleRead());
+   checkbox.addEventListener('change', () => book.toggleRead(book.read));
 
    const label = document.createElement('label');
    label.htmlFor = `${book.id}-read`;
@@ -80,6 +94,10 @@ function createBookCard(book) {
    return bookCard;
 
 }
+
+const AddBook = createBookCard(myLibrary[1]);
+
+document.getElementById('output').appendChild(AddBook);
 
 function displayBooks() {
   const outputLocation = document.getElementById('output');
