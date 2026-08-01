@@ -29,6 +29,8 @@ const myLibrary = [
   }
 ];
 
+
+
 function Book(title, author, read, description) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
@@ -95,6 +97,12 @@ function createBookCard(book) {
 
 }
 
-function displayBooks() {
-  const outputLocation = document.getElementById('output');
+function displayBooks(book) {
+  const mainContent = document.getElementById('books');
+  const NewCard = createBookCard(book);
+  mainContent.appendChild(NewCard);
+}
+
+for (const book of myLibrary) {
+  displayBooks(book);
 }
