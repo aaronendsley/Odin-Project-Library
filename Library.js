@@ -95,10 +95,6 @@ function createBookCard(book) {
 
 }
 
-const AddBook = createBookCard(myLibrary[1]);
-
-document.getElementById('output').appendChild(AddBook);
-
 function displayBooks() {
   const outputLocation = document.getElementById('output');
 }
