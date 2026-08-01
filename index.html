@@ -14,7 +14,31 @@
         <div id="books"></div>
         <!--If there is more than 7 cards then this button will appear-->
             <button type="button" id="add-book-2">Add Book to Library</button>
+
+    <!--The book modal-->
+    <div id="Add-Book">
+        <form id="addBookForm">
+            <label for="bookTitle">Title:</label>
+            <input type="text" id="bookTitle" name="title" value="" required>
+
+            <label for="bookAuthor">Author:</label>
+            <input type="text" id="bookAuthor" name="author" value="" required>
+
+            <label>
+                <input type="checkbox" id="bookRead" value="false" name="read">
+                Read
+            </label>
+
+            <label for="bookDescription">Description:</label>
+            <textarea id="bookDescription" name="description" rows="4" placeholder="Enter a brief description of the book."></textarea>
+
+            <button type="button">Add Book</button>
+        </form>
+
+    </div>
+    <!--End Modal-->
     </main>
+
 </body>
 <script src="Library.js"></script>
 </html>
