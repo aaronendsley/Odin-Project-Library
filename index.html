@@ -8,15 +8,16 @@
 <body>
     <header>
         <h1>My Library</h1>
-        <button type="button" id="add-book-1">Add Book to Library</button>
+        <button type="button" id="add-book-1" command="show-modal" commandfor="Add-Book">Add Book to Library</button>
     </header>
     <main>
         <div id="books"></div>
         <!--If there is more than 7 cards then this button will appear-->
-            <button type="button" id="add-book-2">Add Book to Library</button>
+            <button type="button" id="add-book-2" command="show-modal" commandfor="Add-Book">Add Book to Library</button>
 
     <!--The book modal-->
-    <div id="Add-Book">
+    <dialog id="Add-Book">
+        <button type="button" commandfor="Add-Book" command="close">Close</button>
         <form id="addBookForm">
             <label for="bookTitle">Title:</label>
             <input type="text" id="bookTitle" name="title" value="" required>
@@ -34,8 +35,8 @@
 
             <button type="button">Add Book</button>
         </form>
-
-    </div>
+        <!--Need to look at this https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog-->
+    </dialog>
     <!--End Modal-->
     </main>
 
