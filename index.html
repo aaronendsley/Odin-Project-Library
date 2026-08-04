@@ -18,7 +18,7 @@
     <!--The book modal-->
     <dialog id="Add-Book">
         <button type="button" commandfor="Add-Book" command="close">Close</button>
-        <form id="addBookForm">
+        <form id="add-book-form">
             <label for="bookTitle">Title:</label>
             <input type="text" id="bookTitle" name="title" value="" required>
 
@@ -33,9 +33,9 @@
             <label for="bookDescription">Description:</label>
             <textarea id="bookDescription" name="description" rows="4" placeholder="Enter a brief description of the book."></textarea>
 
-            <button type="button">Add Book</button>
+            <button type="submit" id="submit-book"">Add Book</button>
         </form>
-        <!--Need to look at this https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog-->
+
     </dialog>
     <!--End Modal-->
     </main>

@@ -48,9 +48,12 @@ function Book(title, author, read, description) {
 }
 
 function addBookToLibrary(title, author, read, description) {
+
     // take params, create a book then store it in the array
-    const newBook = new Book(title, author, read, description);
+  const newBook = new Book(title, author, read, description);
   myLibrary.push(newBook);
+  displayBooks(newBook);
+  //Start Here
 }
 
 //card takes in the book object from the my Library Array
@@ -94,6 +97,12 @@ function createBookCard(book) {
    return bookCard;
 
 }
+
+document.getElementById('add-book-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  console.log(event.target.elements['title'].value);
+  addBookToLibrary(event.target.elements['title'].value, event.target.elements.author.value, event.target.elements['read'].checked, event.target.elements['description'].value);
+})
 
 function displayBooks(book) {
   const mainContent = document.getElementById('books');
