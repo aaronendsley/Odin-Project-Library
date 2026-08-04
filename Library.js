@@ -1,4 +1,4 @@
-const myLibrary = [
+let myLibrary = [
     {
         title:"Lord of the Rings",
         author: "J.R.R. Tolkien",
@@ -48,12 +48,22 @@ function Book(title, author, read, description) {
 }
 
 function addBookToLibrary(title, author, read, description) {
-
     // take params, create a book then store it in the array
   const newBook = new Book(title, author, read, description);
   myLibrary.push(newBook);
   displayBooks(newBook);
-  //Start Here
+}
+
+function removeBookFromLibrary(cardId) {
+  // Remove the book from the library
+  const NewLibrary = myLibrary.filter(function (book) {
+    if (book.id !== cardId) {
+      return book;
+     }
+  })
+  myLibrary = NewLibrary;
+  // Remove the book card from the dom
+  document.getElementById(cardId).remove();
 }
 
 //card takes in the book object from the my Library Array
@@ -92,7 +102,16 @@ function createBookCard(book) {
    const description = document.createElement('p');
    description.className = 'book-description';
    description.textContent = book.description;
-   bookCard.appendChild(description);
+  bookCard.appendChild(description);
+
+  const removeCard = document.createElement('button');
+  removeCard.type = "button";
+  removeCard.classList = "remove-button";
+  removeCard.addEventListener('click', () => {
+    removeBookFromLibrary(book.id);
+  });
+  removeCard.textContent = "Remove Book";
+  bookCard.appendChild(removeCard);
 
    return bookCard;
 
@@ -100,7 +119,6 @@ function createBookCard(book) {
 
 document.getElementById('add-book-form').addEventListener('submit', function (event) {
   event.preventDefault();
-  console.log(event.target.elements['title'].value);
   addBookToLibrary(event.target.elements['title'].value, event.target.elements.author.value, event.target.elements['read'].checked, event.target.elements['description'].value);
 })
 
