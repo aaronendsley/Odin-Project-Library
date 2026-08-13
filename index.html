@@ -8,7 +8,9 @@
 <body>
     <header>
         <h1>My Library</h1>
+        <div>
         <button type="button" id="add-book-1" command="show-modal" commandfor="Add-Book">Add Book to Library</button>
+        </div>
     </header>
     <main>
         <div id="books"></div>
@@ -19,19 +21,24 @@
     <dialog id="Add-Book">
         <button type="button" commandfor="Add-Book" command="close">Close</button>
         <form id="add-book-form">
+            <div>
             <label for="bookTitle">Title:</label>
             <input type="text" id="bookTitle" name="title" value="" required>
-
+            </div>
+            <div>
             <label for="bookAuthor">Author:</label>
             <input type="text" id="bookAuthor" name="author" value="" required>
-
+            </div>
+        <div>
             <label>
                 <input type="checkbox" id="bookRead" value="false" name="read">
                 Read
             </label>
-
+        </div>
+            <div>
             <label for="bookDescription">Description:</label>
             <textarea id="bookDescription" name="description" rows="4" placeholder="Enter a brief description of the book."></textarea>
+            </div>
 
             <button type="submit" id="submit-book"">Add Book</button>
         </form>
