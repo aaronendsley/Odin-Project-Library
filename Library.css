@@ -1,6 +1,9 @@
 html, body{
     padding: 0;
     margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #F4F1EA;
+    color: #555555;
 }
 
 header{
@@ -9,11 +12,14 @@ header{
     display: flex;
     justify-content: space-between;
     border-bottom: solid 2px #000;
+
 }
 
 header h1{
     padding-left: 20px;
     align-self: baseline;
+    color: #1A1A1A;
+    align-self: center;
 }
 
 header div{
@@ -23,12 +29,16 @@ header div{
 }
 
 button{
-    border: 2px solid #000;
+    border: 2px solid #fff;
     height: 50px;
-    background: #fff;
-    color: #000;
+    background:#1A1A1A;
+    color:  #fff;
     border-radius: 20px;
-    padding: 10px;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
 }
 
 #add-book-1{
@@ -43,9 +53,10 @@ button{
 
 #Add-Book{
  width: 500px;
- display: flex;
- justify-content: start;
- flex-direction: column;
+}
+
+#close-button{
+    width: 100%
 }
 
 #add-book-form{
@@ -76,9 +87,7 @@ button{
 
 #books{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
     width: 80%;
     margin: 0 auto;
 }
@@ -88,4 +97,21 @@ button{
     border-radius: 20px;
     padding: 20px;
     margin-top: 20px;
+    background:  #ffffff;
+    color: #000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05),
+                  0 1px 2px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.book-card:hover{
+    transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width:800px){
+    #books{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+    }
